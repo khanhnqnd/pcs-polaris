@@ -37,3 +37,4 @@ jobs:
 
         env:
           # We need this to our NPM account
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
