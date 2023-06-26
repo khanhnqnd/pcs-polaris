@@ -1,6 +1,6 @@
 {
   "name": "pcs-polaris",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -21,7 +21,6 @@
   "author": "Khanh Nguyen (khanhnq.nd)",
   "license": "ISC",
   "devDependencies": {
-    "@shopify/polaris": "^11.2.2",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.2",
     "@types/react": "^18.2.14",
@@ -48,5 +47,8 @@
     "dist",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "dependencies": {
+    "@shopify/polaris": "^11.2.2"
+  }
 }
