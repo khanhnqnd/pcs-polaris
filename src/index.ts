@@ -1,3 +1,2 @@
-import MyCounter from './components/App'
-
-export { MyCounter }
+export * from '@shopify/polaris'
+export * from '@shopify/polaris-icons'
