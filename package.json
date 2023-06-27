@@ -44,7 +44,6 @@
     "react": ">=16"
   },
   "files": [
-    "cli.js",
     "dist",
     "LICENSE",
     "README.md"
