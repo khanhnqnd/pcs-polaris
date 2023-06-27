@@ -1,6 +1,6 @@
 {
   "name": "pcs-polaris",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -22,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
+    "@types/inquirer": "^9.0.3",
     "@types/jest": "^29.5.2",
     "@types/react": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
@@ -44,7 +45,6 @@
     "react": ">=16"
   },
   "files": [
-    "cli.js",
     "dist",
     "LICENSE",
     "README.md"
@@ -53,5 +53,5 @@
     "@shopify/polaris": "^11.2.2",
     "inquirer": "^9.2.7"
   },
-  "bin": "./cli.js"
+  "bin": "./dist/esm/cli.js"
 }
