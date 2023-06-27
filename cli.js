@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 /* eslint @typescript-eslint/no-var-requires: "off" */
-const inquirer = require('inquirer')
+// const inquirer = require('inquirer')
+import inquirer from 'inquirer'
 inquirer
   .print([
     {
