@@ -1,25 +1,44 @@
 #!/usr/bin/env node
 
-/* eslint @typescript-eslint/no-var-requires: "off" */
-// const inquirer = require('inquirer')
-import inquirer from 'inquirer'
-inquirer
-  .print([
-    {
-      type: 'question',
-      name: 'generate',
-      message: 'Generate ReactJS app for PCS admin',
-      default: 'yes',
-    },
-  ])
-  .then((answers) => {
-    try {
-      if (answers.pokemonName == 'yes') {
-        console.log('yes')
-      } else {
-        console.log('no')
-      }
-    } catch (err) {
-      console.log('Not found, try again')
-    }
-  })
+const util = require('util');
+const { spawn } = require('child_process');
+const fse = require('fs-extra');
+
+function mySpawn(command, args, options, cb) {
+  const child = spawn(command, args, options);
+  child.on('close', (exitCode) => { cb(null, exitCode) });
+  return child;
+}
+
+const mySpawnPromisified = util.promisify(mySpawn);
+
+mySpawnPromisified(
+    'yarn',
+    ['add', 'react@18.2.0'],
+    { stdio: 'inherit' }
+).then(function(exitCode) {
+  console.log("Installed react@18.2.0");
+  console.log(`Exited with: ${ exitCode }`);
+});
+
+mySpawnPromisified(
+    'yarn',
+    ['add', 'react-dom@18.2.0'],
+    { stdio: 'inherit' }
+).then(function(exitCode) {
+  console.log("Install react-dom@18.2.0");
+  console.log(`Exited with: ${ exitCode }`);
+});
+
+
+function copyReact() {
+  const srcDir = `./node_modules/pcs-polaris/templates/v1`;
+  const destDir = `./`;
+  // To copy a folder or file, select overwrite accordingly
+  try {
+    fse.copySync(srcDir, destDir, { overwrite: true|false })
+    console.log('success!')
+  } catch (err) {
+    console.error(err)
+  }
+}

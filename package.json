@@ -1,6 +1,6 @@
 {
   "name": "pcs-polaris",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -45,13 +45,14 @@
     "react": ">=16"
   },
   "files": [
+    "cli.js",
+    "templates",
     "dist",
     "LICENSE",
     "README.md"
   ],
   "dependencies": {
-    "@shopify/polaris": "^11.2.2",
-    "inquirer": "^9.2.7"
+    "@shopify/polaris": "^11.2.2"
   },
   "bin": "./dist/esm/cli.js"
 }
