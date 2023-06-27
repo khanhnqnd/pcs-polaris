@@ -39,7 +39,7 @@ mySpawnPromisified(
 
 mySpawnPromisified(
   'yarn',
-  ['add', '-D', '@types/react', '@types/react-dom', '@types/react-router-dom', 'typescript', 'sass', 'sass-loader'],
+  ['add', '-D', '@types/react', '@types/react-dom', '@types/react-router-dom', 'typescript', 'sass', 'sass-loader', 'vite', '@vitejs/plugin-react'],
   { stdio: 'inherit' },
 ).then(function (exitCode: any) {
   console.log('Installed package devDependences successfully')
