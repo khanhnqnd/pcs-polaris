@@ -17,13 +17,32 @@ function mySpawn(command: string, args: string[], options: any, cb: any) {
 
 const mySpawnPromisified = util.promisify(mySpawn)
 
-mySpawnPromisified('yarn', ['add', 'react@18.2.0'], { stdio: 'inherit' }).then(function (exitCode: any) {
-  console.log('Installed react@18.2.0')
+mySpawnPromisified(
+  'yarn',
+  [
+    'add',
+    'react@18.2.0',
+    'react-dom@18.2.0',
+    'react-router-dom@6.12.1',
+    'react-redux',
+    '@reduxjs/toolkit',
+    'redux-saga',
+    'axios',
+    'lodash',
+    'moment',
+  ],
+  { stdio: 'inherit' },
+).then(function (exitCode: any) {
+  console.log('Installed package dependences successfully')
   console.log(`Exited with: ${exitCode}`)
 })
 
-mySpawnPromisified('yarn', ['add', 'react-dom@18.2.0'], { stdio: 'inherit' }).then(function (exitCode: any) {
-  console.log('Install react-dom@18.2.0')
+mySpawnPromisified(
+  'yarn',
+  ['add', '-D', '@types/react', '@types/react-dom', '@types/react-router-dom', 'typescript', 'sass', 'sass-loader'],
+  { stdio: 'inherit' },
+).then(function (exitCode: any) {
+  console.log('Installed package devDependences successfully')
   console.log(`Exited with: ${exitCode}`)
 })
 

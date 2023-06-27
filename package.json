@@ -1,6 +1,6 @@
 {
   "name": "pcs-polaris",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -45,7 +45,6 @@
     "react": ">=16"
   },
   "files": [
-    "cli.js",
     "templates",
     "dist",
     "LICENSE",
