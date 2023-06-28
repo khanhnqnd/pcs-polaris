@@ -8,7 +8,7 @@ const { spawn } = require('child_process');
 const fse = require('fs-extra');
 
 function mySpawn(command: string, args: string[], options: any, cb: any) {
-  const child = spawn(command, args, options);
+  const child = spawn(command, args, { ...options, ...{ shell: true } });
   child.on('close', (exitCode: any) => {
     cb(null, exitCode);
   });
@@ -49,42 +49,42 @@ if (argv[2] == 'create') {
     { stdio: 'inherit' },
   ).then(function (exitCode: any) {
     console.log('\x1b[36m%s\x1b[0m', `Installed package dependencies successfully ${exitCode}`);
+
+    mySpawnPromisified(
+      'yarn',
+      [
+        'add',
+        '-D',
+        '@testing-library/react',
+        '@types/jest',
+        '@types/lodash',
+        '@types/react',
+        '@types/react-dom',
+        '@types/react-router-dom',
+        '@typescript-eslint/eslint-plugin',
+        '@typescript-eslint/parser',
+        '@vitejs/plugin-react',
+        'eslint',
+        'eslint-config-prettier',
+        'eslint-plugin-prettier',
+        'eslint-plugin-react',
+        'eslint-plugin-react-hooks',
+        'jest',
+        'jest-canvas-mock',
+        'jest-environment-jsdom',
+        'prettier',
+
+        'typescript',
+        'sass',
+        'sass-loader',
+        'ts-jest',
+        'vite',
+      ],
+      { stdio: 'inherit' },
+    ).then(function (exitCode: any) {
+      console.log('\x1b[36m%s\x1b[0m', `Installed package devDependencies successfully ${exitCode}`);
+
+      cloneReact();
+    });
   });
-
-  mySpawnPromisified(
-    'yarn',
-    [
-      'add',
-      '-D',
-      '@testing-library/react',
-      '@types/jest',
-      '@types/lodash',
-      '@types/react',
-      '@types/react-dom',
-      '@types/react-router-dom',
-      '@typescript-eslint/eslint-plugin',
-      '@typescript-eslint/parser',
-      '@vitejs/plugin-react',
-      'eslint',
-      'eslint-config-prettier',
-      'eslint-plugin-prettier',
-      'eslint-plugin-react',
-      'eslint-plugin-react-hooks',
-      'jest',
-      'jest-canvas-mock',
-      'jest-environment-jsdom',
-      'prettier',
-
-      'typescript',
-      'sass',
-      'sass-loader',
-      'ts-jest',
-      'vite',
-    ],
-    { stdio: 'inherit' },
-  ).then(function (exitCode: any) {
-    console.log('\x1b[36m%s\x1b[0m', `Installed package devDependencies successfully ${exitCode}`);
-  });
-
-  cloneReact();
 }
