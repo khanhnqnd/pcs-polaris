@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo/shipquocte_square.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin template</title>
+    <meta name="description" content="">
+    <link rel="preload" href="/css/token.css" as="style">
+    <link rel="preload" href="/css/loading.css" as="style">
+
+    <link rel="stylesheet" href="/css/token.css">
+    <link rel="stylesheet" href="/css/loading.css">
+</head>
+<body>
+<div id="root">
+    <div id="preLoading" class="Polaris-Onboarding__PreLoading">
+        <img src="/images/logo/shipquocte.svg" alt="HKT Apps" class="Polaris-Onboarding__PreLoading_Image">
+        <div class="Polaris-Onboarding__PreLoading_Image_Spinner">
+            <div style="background-color: {{env('MIX_PARTNER_PRIMARY_COLOR')}}" class="Polaris-Onboarding__PreLoading_Image_Spinner_bounce1"></div>
+            <div class="Polaris-Onboarding__PreLoading_Image_Spinner_bounce2"></div>
+            <div class="Polaris-Onboarding__PreLoading_Image_Spinner_bounce3"></div>
+        </div>
+    </div>
+</div>
+<script type="module" src="/src/app.tsx"></script>
+</body>
+</html>

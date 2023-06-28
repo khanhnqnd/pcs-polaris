@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
 /* eslint @typescript-eslint/no-var-requires: "off" */
-const util = require('util')
+const util = require('util');
 /* eslint @typescript-eslint/no-var-requires: "off" */
-const { spawn } = require('child_process')
+const { spawn } = require('child_process');
 /* eslint @typescript-eslint/no-var-requires: "off" */
-const fse = require('fs-extra')
+const fse = require('fs-extra');
 
 function mySpawn(command: string, args: string[], options: any, cb: any) {
-  const child = spawn(command, args, options)
+  const child = spawn(command, args, options);
   child.on('close', (exitCode: any) => {
-    cb(null, exitCode)
-  })
-  return child
+    cb(null, exitCode);
+  });
+  return child;
 }
 
-const mySpawnPromisified = util.promisify(mySpawn)
+const mySpawnPromisified = util.promisify(mySpawn);
 
 mySpawnPromisified(
   'yarn',
@@ -24,37 +24,63 @@ mySpawnPromisified(
     'react@18.2.0',
     'react-dom@18.2.0',
     'react-router-dom@6.12.1',
-    'react-redux',
-    '@reduxjs/toolkit',
-    'redux-saga',
-    'axios',
-    'lodash',
-    'moment',
+    'react-redux@8.1.1',
+    '@reduxjs/toolkit@1.9.5',
+    'redux-saga@1.2.3',
+    'axios@1.4.0',
+    'lodash@4.17.21',
+    'moment@2.29.4',
   ],
   { stdio: 'inherit' },
 ).then(function (exitCode: any) {
-  console.log('Installed package dependences successfully')
-  console.log(`Exited with: ${exitCode}`)
-})
+  console.log('\x1b[36m%s\x1b[0m', `Installed package dependencies successfully ${exitCode}`);
+});
 
 mySpawnPromisified(
   'yarn',
-  ['add', '-D', '@types/react', '@types/react-dom', '@types/react-router-dom', 'typescript', 'sass', 'sass-loader', 'vite', '@vitejs/plugin-react'],
+  [
+    'add',
+    '-D',
+    '@testing-library/react',
+    '@types/jest',
+    '@types/lodash',
+    '@types/react',
+    '@types/react-dom',
+    '@types/react-router-dom',
+    '@typescript-eslint/eslint-plugin',
+    '@typescript-eslint/parser',
+    '@vitejs/plugin-react',
+    'eslint',
+    'eslint-config-prettier',
+    'eslint-plugin-prettier',
+    'eslint-plugin-react',
+    'eslint-plugin-react-hooks',
+    'jest',
+    'jest-canvas-mock',
+    'jest-environment-jsdom',
+    'prettier',
+
+    'typescript',
+    'sass',
+    'sass-loader',
+    'ts-jest',
+    'vite',
+  ],
   { stdio: 'inherit' },
 ).then(function (exitCode: any) {
-  console.log('Installed package devDependences successfully')
-  console.log(`Exited with: ${exitCode}`)
-})
+  console.log('\x1b[36m%s\x1b[0m', `Installed package devDependencies successfully ${exitCode}`);
+});
 
 function copyReact() {
-  const srcDir = `./node_modules/pcs-polaris/templates/v1`
-  const destDir = `./`
+  const srcDir = `./node_modules/pcs-polaris/templates/v1`;
+  const destDir = `./`;
   // To copy a folder or file, select overwrite accordingly
   try {
-    fse.copySync(srcDir, destDir, { overwrite: false })
-    console.log('success!')
+    fse.copySync(srcDir, destDir, { overwrite: false });
+    console.log('success!');
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
-copyReact()
+
+copyReact();

@@ -1,0 +1,85 @@
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.hover-background {
+  &:hover {
+    background-color: var(--pc-top-bar-background-lighter,var(--p-surface-hovered));
+  }
+  .Polaris-Icon--colorHighlight svg {
+    fill: var(--p-icon-highlight)!important;
+  }
+}
+.sync-information {
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  span.Polaris-Badge {
+    line-height: 8px;
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    background-color: red;
+    color: #fff;
+    z-index: 1;
+    border-radius: 100%;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    span {
+      line-height: unset;
+      font-size: unset;
+    }
+  }
+
+  .loader {
+    margin: 0 auto;
+    font-size: 3px;
+    top: 4px;
+    right: 3px;
+    position: absolute;
+    text-indent: -9999em;
+    border-top: 1.1em solid rgba(59, 89, 152, 0.2);
+    border-right: 1.1em solid rgba(59, 89, 152, 0.2);
+    border-bottom: 1.1em solid rgba(59, 89, 152, 0.2);
+    border-left: 1.1em solid #3b5998;
+
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+  }
+
+  .loader::after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+  }
+}

@@ -1,0 +1,109 @@
+.homepage {
+  .banner {
+    color: #f9fafb;
+    background: url('/images/background/banner.svg') no-repeat;
+    background-size: auto 100%;
+    background-position: 100% 100%;
+    background-color: var(--p-icon-success);;
+    padding: 1.6rem 3.2rem;
+    border-radius: 10px;
+    box-shadow: var(--p-card-shadow, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15));
+    outline: .1rem solid transparent;
+
+
+    @media (max-width: 75em) {
+      background: url('/images/background/banner.svg') no-repeat;
+      background-size: auto 100%;
+      background-position: 100% 100%;
+      padding: 1.6rem 3.2rem;
+      color: #f9fafb;
+      background-color: var(--p-icon-success);;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 30.625em) {
+      padding-left: 1.6rem;
+      border-radius: 0;
+    }
+
+    @media (max-width: 24.375em) {
+      background-image: none;
+    }
+
+    .content {
+      width: 70%;
+      @media (max-width: 75em) {
+        width: 80%
+      }
+
+      .action {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .content > * {
+      padding-top: 1.6rem;
+    }
+  }
+
+  .overview {
+    .title {
+      @media (max-width: 30.5625em) {
+        margin: 0px 1.6rem;
+      }
+    }
+
+    .content {
+      align-items: stretch;
+      display: grid;
+      grid-template-columns: 1fr;
+
+      @media (min-width: 28.125em) {
+        gap: 0.8rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width: 77.375em) {
+        gap: 0.8rem;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .item {
+        background: rgb(249, 250, 251);
+        box-shadow: none;
+        border-radius: 10px;
+        border: 1px solid rgb(223, 227, 232);
+        padding: 1.6rem;
+
+        .value {
+          font-size: 2rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .activities {
+    .title {
+      @media (max-width: 30.5625em) {
+        margin: 0px 1.6rem;
+      }
+    }
+  }
+
+  .faq {
+    .title {
+      @media (max-width: 30.5625em) {
+        margin: 0px 1.6rem;
+      }
+    }
+    .support-title {
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .support-content {
+      margin-top: 8px;
+    }
+  }
+}
+

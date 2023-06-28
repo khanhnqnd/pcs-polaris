@@ -1,0 +1,68 @@
+.Polaris-TopBar-Search__Results {
+  overflow: scroll;
+}
+
+.Polaris-Button--bold {
+  span {
+    font-weight: 500;
+  }
+}
+
+.Polaris-Custom {
+  .Polaris-LegacyCard {
+    box-shadow: none;
+    border-radius: 12px;
+  }
+  .Polaris-Button {
+    border-radius: 8px;
+    box-shadow: none;
+  }
+  .Polaris-Tag {
+    border-radius: 8px;
+    box-shadow: none;
+  }
+}
+
+.Polaris-AppSwitcher {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  border-right: 0.1rem solid var(--p-divider, #dfe3e8);
+
+  .Polaris-Stack__Item {
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .Polaris-Stack__Item:first-child {
+    margin-top: 1.6rem;
+  }
+
+  .Polaris-AppSwitcherItem {
+    background: transparent;
+    border: 0;
+    width: 100%;
+    height: 56px;
+    cursor: pointer;
+    outline: none;
+  }
+  .Polaris-AppSwitcherItem:hover svg, .Polaris-AppSwitcherItem:hover small, .Polaris-AppSwitcherItem.Polaris-AppSwitcherItem--selected svg, .Polaris-AppSwitcherItem.Polaris-AppSwitcherItem--selected small {
+    fill: var(--p-icon-success);;
+    color: var(--p-icon-success);;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Polaris-AppSwitcher {
+    display: none;
+  }
+}
+
+.Polaris-TextTransform--uppercase {
+  text-transform: uppercase;
+}
+.Polaris-TextAlign--center {
+  text-align: center;
+}

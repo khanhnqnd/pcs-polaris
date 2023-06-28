@@ -1,0 +1,62 @@
+.Polaris-Onboarding__PreLoading {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+
+.Polaris-Onboarding__PreLoading_Image {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.Polaris-Onboarding__PreLoading_Image_Spinner {
+  margin: 20px;
+  width: 70px;
+  text-align: center
+}
+
+.Polaris-Onboarding__PreLoading_Image_Spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #120497;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: Polaris-Onboarding__PreLoading_Image_Spinner--bouncedelay 1.4s infinite ease-in-out both;
+  animation: Polaris-Onboarding__PreLoading_Image_Spinner--bouncedelay 1.4s infinite ease-in-out both
+}
+
+.Polaris-Onboarding__PreLoading_Image_Spinner .Polaris-Onboarding__PreLoading_Image_Spinner_bounce1 {
+  -webkit-animation-delay: -.32s;
+  animation-delay: -.32s
+}
+
+.Polaris-Onboarding__PreLoading_Image_Spinner .Polaris-Onboarding__PreLoading_Image_Spinner_bounce2 {
+  -webkit-animation-delay: -.16s;
+  animation-delay: -.16s
+}
+
+@-webkit-keyframes Polaris-Onboarding__PreLoading_Image_Spinner--bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0)
+  }
+  40% {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes Polaris-Onboarding__PreLoading_Image_Spinner--bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}

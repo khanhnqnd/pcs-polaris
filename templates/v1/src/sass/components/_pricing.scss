@@ -1,0 +1,154 @@
+.plan-tab {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.plan-item {
+  position: relative;
+  .plan-price {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    .plan-price-currency {
+
+    }
+    .plan-price-value {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .plan-price-annual {
+
+    }
+  }
+  .plan-description {
+    height: 100px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .plan-title {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .plan-benefit {
+    margin-bottom: 16px;
+    height: 200px;
+    @media all and (max-width: 768px) {
+      height: 100%;
+    }
+    @media all and (max-width: 1039px) {
+      height: 150px;
+      &.last-benefit {
+        height: 100%;
+      }
+    }
+    &.lifetime {
+      height: 100%;
+    }
+    .label-feature {
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: bold;
+    }
+    .list-feature {
+      .feature-item {
+        margin-top: 8px;
+        display: flex;
+        .feature-check {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+        .feature-name {
+          flex:1;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+.pricing-ribbon{
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.pricing-ribbon::before,
+.pricing-ribbon::after{
+  position: absolute;
+  content: "";
+  z-index: -1;
+  display: block;
+  border: 7px solid #4606ac;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.pricing-ribbon::before{
+  top: 0px;
+  right: 15px;
+}
+.pricing-ribbon::after{
+  bottom: 15px;
+  left: 0px;
+}
+.pricing-ribbon span{
+  position: absolute;
+  font-weight: bold;
+  top: 15px;
+  right: 0;
+  transform: rotate(-45deg);
+  width: 190px;
+  background: #0EBE2C;
+  padding: 8px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+}
+
+// sale
+
+.sale-ribbon{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  overflow: hidden;
+}
+.sale-ribbon::before,
+.sale-ribbon::after{
+  position: absolute;
+  content: "";
+  z-index: -1;
+  display: block;
+  border: 7px solid #4606ac;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.sale-ribbon::before{
+  top: 0px;
+  right: 15px;
+}
+.sale-ribbon::after{
+  bottom: 15px;
+  left: 0px;
+}
+.sale-ribbon span{
+  position: relative;
+  font-weight: bold;
+  top: 0;
+  right: 0;
+  background: red;
+  padding: 12px;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+}
+
