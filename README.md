@@ -28,34 +28,30 @@ yarn add -D pcs-polaris
 
 ## Usage :
 
-Add `MyCounter` to your component:
+Generate React repository
+```bash
+yarn pcs-polaris create
+```
+
+Add `scripts` to your packages.json:
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { MyCounter } from 'pcs-polaris'
+"start": "vite --config=vite.config.ts",
+"build": "vite build --config=vite.config.ts",
+"lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+"test": "jest --config jestconfig.json"
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(
-    <React.StrictMode>
-        <div>
-            <h2>Default counter</h2>
-            <MyCounter />
-        </div>
-        <hr />
-        <div>
-            <h2>Counter with predefined value</h2>
-            <MyCounter value={5} />
-        </div>
-    </React.StrictMode>,
-)
+```
 
+Run project
+```bash
+yarn start
 ```
 
 [npm-url]: https://www.npmjs.com/package/pcs-polaris
 [npm-image]: https://img.shields.io/npm/v/pcs-polaris
 [github-license]: https://img.shields.io/github/license/khanhnqnd/pcs-polaris
-[github-license-url]: https://github.com/khanhnqnd/pcs-polaris/blob/master/LICENSE
+[github-license-url]: https://github.com/khanhnqnd/pcs-polaris/blob/main/LICENSE
 [github-build]: https://github.com/khanhnqnd/pcs-polaris/actions/workflows/publish.yml/badge.svg
 [github-build-url]: https://github.com/khanhnqnd/pcs-polaris/actions/workflows/publish.yml
 [npm-typescript]: https://img.shields.io/npm/types/pcs-polaris
