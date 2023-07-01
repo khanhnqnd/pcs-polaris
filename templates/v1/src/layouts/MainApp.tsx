@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useCallback, useRef, useState } from 'react';
+import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActionList,
   AppProvider,
@@ -32,8 +32,10 @@ import FooterMarkup from '../components/FooterMarkup';
 import SetupGuide from '../components/SetupGuide';
 import { toastAction } from '../store/reducers/toastReducer';
 import { useLocation } from 'react-router-dom';
+import Login from '../pages/Auth/Login.tsx';
 
 const Home = lazy(() => import('../pages/Home'));
+const OrderList = lazy(() => import('../pages/Order/List.tsx'));
 
 const MainApp = () => {
   const location = useLocation();
@@ -62,30 +64,31 @@ const MainApp = () => {
         {
           items: [
             {
-              content: 'Log out',
-              onAction: () => {
-                console.log('123');
-              },
-              icon: PolarisIcons.LogOutMinor,
+              content: 'Hướng dẫn sử dụng',
+              url: '',
+              external: true,
+            },
+            {
+              content: 'Liên hệ hỗ trợ',
+              url: '',
+              external: true,
+            },
+            {
+              content: 'Phím tắt',
+              url: '',
+              external: true,
             },
           ],
         },
+
         {
           items: [
             {
-              content: 'Help center',
-              url: '',
-              external: true,
-            },
-            {
-              content: 'Get support',
-              url: '',
-              external: true,
-            },
-            {
-              content: 'Explore more',
-              url: '',
-              external: true,
+              content: 'Đăng xuất',
+              onAction: () => {
+                window.location.href = '/login';
+              },
+              icon: PolarisIcons.LogOutMinor,
             },
           ],
         },
@@ -113,6 +116,11 @@ const MainApp = () => {
             url: '/home',
             icon: PolarisIcons.HomeMajor,
           },
+          {
+            label: 'Orders',
+            url: '/orders',
+            icon: PolarisIcons.OrdersMajor,
+          },
         ]}
       />
     </Navigation>
@@ -131,7 +139,7 @@ const MainApp = () => {
       >
         <div style={{ position: 'relative', display: 'flex', gap: 4 }}>
           <Icon source={PolarisIcons.FlagMajor} color={'highlight'} />
-          <span style={{ width: 82 }}>Setup guide</span>
+          <span style={{ width: 82 }}>Hướng dẫn</span>
         </div>
       </div>
       {/*<div>*/}
@@ -161,11 +169,11 @@ const MainApp = () => {
           tabs={[
             {
               id: 'news',
-              content: `App news (${newsNotReadLength})`,
+              content: `Hệ thống (${newsNotReadLength})`,
             },
             {
               id: 'activities',
-              content: `Your activities (${activitiesNotReadLength})`,
+              content: `Hành động (${activitiesNotReadLength})`,
             },
           ]}
           onSelect={(selectedTabIndex) => handleChangeTabNotification(selectedTabIndex)}
@@ -259,7 +267,7 @@ const MainApp = () => {
   const searchState = useSelector((state: AppState) => state.search);
 
   const searchResultsMarkup = (
-    <ActionList items={searchState.loading_emails ? [{ content: 'Searching customers...' }] : searchResults} />
+    <ActionList items={searchState.loading_customers ? [{ content: 'Searching customers...' }] : searchResults} />
   );
   const handleSearchResultsDismiss = () => {
     setIsSearchActive(false);
@@ -271,7 +279,7 @@ const MainApp = () => {
     debounce(
       (keyword: string) =>
         dispatch(
-          searchAction.searchEmails({
+          searchAction.searchCustomers({
             keyword: keyword,
           }),
         ),
@@ -279,6 +287,20 @@ const MainApp = () => {
     ),
     [],
   );
+
+  useEffect(() => {
+    let tmp = [];
+    let customers = searchState.customers;
+    for (let i = 0; i < customers.length; i++) {
+      const item = customers[i];
+      tmp.push({
+        content: item.email,
+        url: `/customers/${item.id}`,
+        icon: PolarisIcons.CustomersMajor,
+      });
+    }
+    setSearchResults(tmp);
+  }, [searchState.customers]);
 
   const handleSearchChange = (value: any) => {
     setSearchValue(value);
@@ -313,31 +335,38 @@ const MainApp = () => {
 
   return (
     <>
-      <AppProvider i18n={enTranslations} linkComponent={RouterLink}>
-        <Frame
-          logo={Theme.logo}
-          topBar={topBarMarkup}
-          navigation={navigationMarkup}
-          showMobileNavigation={mobileNavigationActive}
-          onNavigationDismiss={toggleMobileNavigationActive}
-        >
-          <Suspense fallback={loadingPageMarkup}>
-            <Routes>
-              <Route path={'/home'} element={<Home />} />
-              <Route path='*' element={<Navigate to='/home' replace />} />
-            </Routes>
-            <FooterMarkup />
-          </Suspense>
-          <SetupGuide />
-          {toastState.open ? (
-            <Toast
-              error={toastState.status == 'error'}
-              content={toastState.message}
-              onDismiss={() => dispatch(toastAction.closeToast())}
-            />
-          ) : null}
-        </Frame>
-      </AppProvider>
+      {location.pathname == '/login' ? (
+        <AppProvider i18n={enTranslations} linkComponent={RouterLink}>
+          <Login />
+        </AppProvider>
+      ) : (
+        <AppProvider i18n={enTranslations} linkComponent={RouterLink}>
+          <Frame
+            logo={Theme.logo}
+            topBar={topBarMarkup}
+            navigation={navigationMarkup}
+            showMobileNavigation={mobileNavigationActive}
+            onNavigationDismiss={toggleMobileNavigationActive}
+          >
+            <Suspense fallback={loadingPageMarkup}>
+              <Routes>
+                <Route path={'/home'} element={<Home />} />
+                <Route path={'/orders'} element={<OrderList />} />
+                <Route path='*' element={<Navigate to='/home' replace />} />
+              </Routes>
+              <FooterMarkup />
+            </Suspense>
+            <SetupGuide />
+            {toastState.open ? (
+              <Toast
+                error={toastState.status == 'error'}
+                content={toastState.message}
+                onDismiss={() => dispatch(toastAction.closeToast())}
+              />
+            ) : null}
+          </Frame>
+        </AppProvider>
+      )}
     </>
   );
 };

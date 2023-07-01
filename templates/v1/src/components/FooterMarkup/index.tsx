@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { FooterHelp, Link } from 'pcs-polaris';
+import { App } from '../../config/app.ts';
 
 const FooterMarkup: FunctionComponent = () => (
   <FooterHelp>
-    Explore more from{' '}
-    <Link url={''} external removeUnderline>
-      Shipquocte
+    Copyright © {new Date().getFullYear()}{' '}
+    <Link url={App.website} target={'_blank'} removeUnderline>
+      {App.name}
     </Link>
   </FooterHelp>
 );

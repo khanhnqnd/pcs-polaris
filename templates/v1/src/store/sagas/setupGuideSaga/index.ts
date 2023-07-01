@@ -4,7 +4,7 @@ import { setupGuideAction } from '../../reducers/setupGuideReducer';
 import { AxiosResponse } from 'axios';
 import { apiClient } from '../../../utils/api';
 
-function* fetchSetupGuides({ payload }: PayloadAction) {
+function* fetchSetupGuides() {
   try {
     const response: AxiosResponse = yield apiClient.get('/setup-guide/all.json');
     const responseData = response.data;

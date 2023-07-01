@@ -4,12 +4,12 @@ import {
   Divider,
   Icon,
   List,
+  PolarisIcons,
   ProgressBar,
   Spinner,
   Text,
   TextContainer,
   Tooltip,
-  PolarisIcons,
 } from 'pcs-polaris';
 import { AppState } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,7 +21,7 @@ const SetupGuide = () => {
   const setupGuideState = useSelector((state: AppState) => state.setupGuide);
   const dispatch = useDispatch();
 
-  const [total, setTotal] = useState(3);
+  const [total, setTotal] = useState(2);
 
   useEffect(() => {
     toggleSetupGuide(setupGuideState.open);
@@ -39,14 +39,14 @@ const SetupGuide = () => {
       return (
         <div className='content-detail'>
           <div className='detail-title'>
-            {buildAction('setting_template')}
+            {buildAction('setup1')}
             <div className='title'>
               <Text as={'h2'} variant={'headingMd'}>
-                Setting templates
+                Hướng dẫn tạo đơn
               </Text>
               <p className={'subtitle'}>
                 <Text as={'span'} variant={'bodySm'} color={'subdued'}>
-                  Create an awesome template for your order
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 </Text>
               </p>
             </div>
@@ -56,7 +56,7 @@ const SetupGuide = () => {
             <TextContainer>
               <p>
                 <Text as={'h3'} variant={'headingMd'} fontWeight={'bold'} color={'success'}>
-                  How to setup:
+                  Các bước cài đặt
                 </Text>
               </p>
               <List>
@@ -88,69 +88,15 @@ const SetupGuide = () => {
                 </List.Item>
               </List>
               <p>
-                <Text as={'h3'} variant={'headingMd'} fontWeight={'bold'} color={'success'}>
-                  There are 5 template types:
+                <Text as={'span'} variant={'bodyMd'}>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                  release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                  software like Aldus PageMaker including versions of Lorem Ipsum.
                 </Text>
               </p>
-              <List>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Invoices
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      Use a professional invoice to leave a lasting impression and encourage customers to come back for
-                      many years!
-                    </p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Orders
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      Why being so normal? Use HKT Apps order template to put your professional, eye-catching, and
-                      bright personality on display.
-                    </p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Packing slips
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      Use pre-made Packing Slip template to get better invoice management. Like other types of PDF
-                      documents, including Order, Refund, or Invoice, it is super simple to custom your Packing Slip
-                      template to your satisfaction.
-                    </p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Refunds
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      Sending professional and functional refund to your clients doesn’t have to be a headache! Refund
-                      default template assists you to create and deliver refund emails in a matter of minutes. All
-                      needed fields for refunding is ready to use.
-                    </p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Draft orders
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      HKT Apps professionally designed form saves much of your time and effort from building draft order
-                      template. Ask for help from our technical team to custom the template beautiful as you want.
-                    </p>
-                  </TextContainer>
-                </List.Item>
-              </List>
             </TextContainer>
           </div>
           <div className={'detail-action'}>
@@ -164,15 +110,14 @@ const SetupGuide = () => {
       return (
         <div className='content-detail'>
           <div className='detail-title'>
-            {buildAction('custom_store_information')}
+            {buildAction('setup2')}
             <div className='title'>
               <Text as={'h2'} variant={'headingMd'}>
-                Custom store information
+                Lorem Ipsum is simply dummy text
               </Text>
               <p className={'subtitle'}>
                 <Text as='span' color={'subdued'}>
-                  Configure your store general information to show on PDF Invoice: Upload logo, enter address, phone
-                  number and more.
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 </Text>
               </p>
             </div>
@@ -200,104 +145,15 @@ const SetupGuide = () => {
                 </List.Item>
               </List>
               <p>
-                <Text as={'h3'} variant={'headingMd'} fontWeight={'bold'} color={'success'}>
-                  Sections should be completed:
+                <Text as={'span'} variant={'bodyMd'}>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                  release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                  software like Aldus PageMaker including versions of Lorem Ipsum.
                 </Text>
               </p>
-              <List>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Store details
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>The details about your store will appear on your invoices</p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Store address
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>The physical store address will appear on your invoices</p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Standard and formats
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      Standards and formats are used to format product prices, and order times.
-                    </p>
-                  </TextContainer>
-                </List.Item>
-                <List.Item>
-                  <TextContainer spacing={'tight'}>
-                    <Text as={'p'} variant={'bodyMd'} fontWeight={'semibold'}>
-                      Social networking
-                    </Text>
-                    <p style={{ fontStyle: 'italic' }}>
-                      Social networking information that your store used in the internet
-                    </p>
-                  </TextContainer>
-                </List.Item>
-              </List>
-            </TextContainer>
-          </div>
-          <div className={'detail-action'}>
-            <Button plain external url={''}>
-              Hard to setup? Get support now
-            </Button>
-          </div>
-        </div>
-      );
-    } else if (activeGuideId == 3) {
-      return (
-        <div className='content-detail'>
-          <div className='detail-title'>
-            {buildAction('setup_language')}
-            <div className='title'>
-              <Text as={'h2'} variant={'headingMd'}>
-                Setup language
-              </Text>
-              <p className={'subtitle'}>
-                <Text as='span' color={'subdued'}>
-                  You can customize primary and supported languages
-                </Text>
-              </p>
-            </div>
-          </div>
-          <Divider />
-          <div>
-            <TextContainer>
-              <p>
-                <Text as={'h3'} variant={'headingMd'} fontWeight={'bold'} color={'success'}>
-                  How to setup:
-                </Text>
-              </p>
-              <List>
-                <List.Item>
-                  <p>
-                    Click to{' '}
-                    <Text as={'span'} variant={'bodyMd'} fontWeight={'bold'}>
-                      Settings
-                    </Text>{' '}
-                    on the Left menu.
-                  </p>
-                </List.Item>
-                <List.Item>
-                  <p>
-                    Click to{' '}
-                    <Text as={'span'} variant={'bodyMd'} fontWeight={'bold'}>
-                      Translations
-                    </Text>{' '}
-                    on the sub menu.
-                  </p>
-                </List.Item>
-                <List.Item>
-                  <p>Add your language and customize</p>
-                </List.Item>
-              </List>
             </TextContainer>
           </div>
           <div className={'detail-action'}>
@@ -398,7 +254,7 @@ const SetupGuide = () => {
             </div>
           ) : null}
           <Text as={'h2'} variant={'headingMd'}>
-            Setup guide
+            Hướng dẫn sử dụng
           </Text>
           <button className={'head-close'} onClick={() => dispatch(setupGuideAction.closeSetupGuide())}>
             <Icon source={PolarisIcons.MobileCancelMajor} />
@@ -423,27 +279,18 @@ const SetupGuide = () => {
         ) : (
           <>
             <div className='content-item'>
-              {buildAction('setting_template')}
+              {buildAction('setup1')}
               <button className={'task-container'} onClick={() => setActiveGuideId(1)}>
-                <div className='task-title'>Setting templates</div>
+                <div className='task-title'>Hướng dẫn tạo đơn</div>
                 <div>
                   <Icon source={PolarisIcons.ChevronRightMinor} color={'subdued'} />
                 </div>
               </button>
             </div>
             <div className='content-item'>
-              <div className='check-done-container'>{buildAction('custom_store_information')}</div>
+              <div className='check-done-container'>{buildAction('setup2')}</div>
               <button className={'task-container'} onClick={() => setActiveGuideId(2)}>
-                <div className='task-title'>Custom store information</div>
-                <div>
-                  <Icon source={PolarisIcons.ChevronRightMinor} color={'subdued'} />
-                </div>
-              </button>
-            </div>
-            <div className='content-item'>
-              {buildAction('setup_language')}
-              <button className={'task-container'} onClick={() => setActiveGuideId(3)}>
-                <div className='task-title'>Setup language</div>
+                <div className='task-title'>Hướng dẫn in bill</div>
                 <div>
                   <Icon source={PolarisIcons.ChevronRightMinor} color={'subdued'} />
                 </div>

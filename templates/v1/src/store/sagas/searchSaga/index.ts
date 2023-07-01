@@ -1,32 +1,24 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { delay, put, takeLatest } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { searchAction } from '../../reducers/searchReducer';
-import { AxiosResponse } from 'axios';
-import { apiClient } from '../../../utils/api';
+import { customers } from '../../../data/search.ts';
 
-function* searchEmails({ payload }: PayloadAction<any>) {
+function* searchCustomers({ payload }: PayloadAction<any>) {
   try {
-    const keyword = payload.keyword ?? '';
-    const url = `/subscriber/all.json?keyword=${keyword}&page=1&limit=10`;
-    const response: AxiosResponse = yield apiClient.get(url);
-    const responseData = response.data;
-    if (responseData.status) {
-      const mainData = responseData.data;
-      yield put(
-        searchAction.searchEmailsSucceed({
-          emails: mainData.rows,
-        }),
-      );
-    } else {
-      yield put(searchAction.searchEmailsFailed());
-    }
+    console.log(payload);
+    yield delay(500);
+    yield put(
+      searchAction.searchCustomersSucceed({
+        customers: customers,
+      }),
+    );
   } catch (e) {
-    yield put(searchAction.searchEmailsFailed());
+    yield put(searchAction.searchCustomersFailed());
   }
 }
 
 function* searchSaga() {
-  yield takeLatest(searchAction.searchEmails.type, searchEmails);
+  yield takeLatest(searchAction.searchCustomers.type, searchCustomers);
 }
 
 export default searchSaga;

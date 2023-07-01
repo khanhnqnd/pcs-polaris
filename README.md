@@ -6,11 +6,12 @@
 ![npm-typescript]
 [![License][github-license]][github-license-url]
 
+
 This repo is the wrapper of the polaris library
 
 It is simple React admin template.
 
-[**Live Demo**](https://khanhnqnd.github.io/pcs-polaris/)
+[**Components**](https://polaris.shopify.com/components/)
 
 ## Installation:
 

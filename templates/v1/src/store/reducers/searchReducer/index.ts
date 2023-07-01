@@ -1,28 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export type SearchState = {
-  loading_emails: boolean;
-  emails: any[];
+  loading_customers: boolean;
+  customers: any[];
 };
 
 const initState: SearchState = {
-  loading_emails: false,
-  emails: [],
+  loading_customers: false,
+  customers: [],
 };
 
 const searchSlice = createSlice({
   name: 'search',
   initialState: initState,
   reducers: {
-    searchEmails: (state: SearchState, _action) => {
-      state.loading_emails = true;
+    searchCustomers: (state: SearchState, _action) => {
+      state.loading_customers = true;
     },
-    searchEmailsSucceed: (state: SearchState, action) => {
-      state.loading_emails = false;
-      state.emails = action.payload.emails;
+    searchCustomersSucceed: (state: SearchState, action) => {
+      state.loading_customers = false;
+      state.customers = action.payload.customers;
     },
-    searchEmailsFailed: (state: SearchState) => {
-      state.loading_emails = false;
+    searchCustomersFailed: (state: SearchState) => {
+      state.loading_customers = false;
     },
   },
 });
