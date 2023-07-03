@@ -9,11 +9,20 @@
 
 This repo is the wrapper of the polaris library
 
-It is simple React admin template.
+It is simple React admin template following [**Polaris UI components**](https://polaris.shopify.com/components/)
 
-[**Components**](https://polaris.shopify.com/components/)
+## Create project in the first time
+```bash
+npm init -y
+```
 
-## Installation:
+or
+
+```bash
+yarn init -y
+```
+
+## Add pcs library:
 
 ```bash
 npm install pcs-polaris --save-dev
@@ -25,27 +34,53 @@ or
 yarn add -D pcs-polaris
 ```
 
-## Usage :
+## Generate project source code:
 
 Generate React repository
+
+```bash
+npx pcs-polaris create
+```
+
+or
+
 ```bash
 yarn pcs-polaris create
 ```
 
-Add `scripts` to your packages.json:
+## Run project:
 
-```js
-"start": "vite --config=vite.config.ts",
-"build": "vite build --config=vite.config.ts",
-"lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-"test": "jest --config jestconfig.json"
-
+### Option 1: Run project in Docker
+```bash
+docker compose up -d
 ```
 
-Run project
+### Option 2: Run project in local machine
+
+1. Install packages
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+2. Start development
+
+
+```bash
+npm run start
+```
+
+or
+
 ```bash
 yarn start
 ```
+
 
 [npm-url]: https://www.npmjs.com/package/pcs-polaris
 [npm-image]: https://img.shields.io/npm/v/pcs-polaris
