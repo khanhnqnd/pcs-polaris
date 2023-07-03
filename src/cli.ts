@@ -32,8 +32,12 @@ function createReactApp() {
     } else {
       fse.copySync(srcDir, destDir, { overwrite: true });
       fse.copySync(`${destDir}/.gitignore.example`, `${destDir}/.gitignore`, { overwrite: false });
-      fs.rmSync(`${destDir}/package-lock.json`);
-      fs.rmSync(`${destDir}/yarn-lock.json`);
+      if (allFiles.includes('package-lock.json')) {
+        fs.rmSync(`${destDir}/package-lock.json`);
+      }
+      if (allFiles.includes('yarn.lock')) {
+        fs.rmSync(`${destDir}/yarn.lock`);
+      }
       console.log('\x1b[36m%s\x1b[0m', `Create pcs admin template successfully`);
     }
   } catch (err) {
