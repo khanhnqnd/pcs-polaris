@@ -8,6 +8,9 @@ export default ({ mode }) => {
     server: {
       host: '0.0.0.0',
       port: parseInt(process.env.VITE_PORT),
+      watch: {
+        usePolling: true,
+      },
     },
     plugins: [react()],
   });
