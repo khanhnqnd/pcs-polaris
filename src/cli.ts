@@ -31,6 +31,7 @@ function createReactApp() {
       console.log('\x1b[31m%s\x1b[0m', `Create pcs admin template failed! The "src" directory is already exists`);
     } else {
       fse.copySync(srcDir, destDir, { overwrite: true });
+      fse.copySync(`${destDir}/.gitignore.example`, `${destDir}/.gitignore`, { overwrite: false });
       console.log('\x1b[36m%s\x1b[0m', `Create pcs admin template successfully`);
     }
   } catch (err) {
