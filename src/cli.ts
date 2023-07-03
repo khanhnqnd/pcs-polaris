@@ -46,7 +46,6 @@ function createReactApp() {
 }
 
 const argv = process.argv;
-console.log(process.argv);
 if (argv[2] == 'create') {
   // mySpawnPromisified(
   //     'yarn',

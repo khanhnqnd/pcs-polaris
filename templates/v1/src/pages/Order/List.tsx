@@ -289,7 +289,7 @@ export default function IndexTableWithViewsSearchFilterSorting() {
 
   return (
     <div className={'Polaris-Custom'}>
-      <Page>
+      <Page title={'Orders'} subtitle={'All orders of your store'}>
         <Layout>
           <Layout.Section>
             <LegacyCard>
